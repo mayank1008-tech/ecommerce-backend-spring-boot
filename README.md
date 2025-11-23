@@ -87,6 +87,18 @@ A detailed Entity-Relationship (ER) diagram is available in the project root:
 
 The server will start on `http://localhost:8080`.
 
+## 👤 Default Users (For Testing)
+
+The application automatically seeds the database with the following accounts so you can test different access levels immediately:
+
+| Role | Username | Password | Email | Access Level |
+| :--- | :--- | :--- | :--- | :--- |
+| **Admin** | `admin` | `adminpass` | `admin@example.com` | **Full Access**: Manage Categories, Products, Users, and Roles. |
+| **Seller** | `seller1` | `password123` | `seller1@example.com` | **Seller Access**: Manage Products (Create, Update, Delete). |
+| **User** | `user1` | `password123` | `user1@example.com` | **Customer Access**: Browse Products, Manage Cart, Place Orders. |
+
+> **Note:** These users are created automatically when the application runs for the first time via `CommandLineRunner`.
+
 ## 📖 API Documentation
 
 Once the server is running, you can access the interactive Swagger UI documentation at:
