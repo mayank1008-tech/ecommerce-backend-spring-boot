@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,6 +23,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_SELLER')")
     @PostMapping("/admin/categories/{CategoryId}/product")
     public ResponseEntity<ProductDTO> addProduct( @PathVariable("CategoryId") Long CategoryId,@Valid @RequestBody ProductDTO productDTO) {
         ProductDTO resProductDTO = productService.addProduct(productDTO, CategoryId);
@@ -58,18 +60,21 @@ public class ProductController {
         return new ResponseEntity<>(productResponse, HttpStatus.FOUND);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_SELLER')")
     @PutMapping("/admin/products/{ProductId}")
     public ResponseEntity<ProductDTO> updateProduct( @PathVariable("ProductId") Long ProductId,@Valid @RequestBody ProductDTO productDTO) {
         ProductDTO resProductDTO = productService.updateProduct(ProductId, productDTO);
         return new ResponseEntity<>(resProductDTO, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @DeleteMapping("/admin/products/{ProductId}")
     public ResponseEntity<String> deleteProduct(@PathVariable("ProductId") Long ProductId) {
         String status = productService.deleteProduct(ProductId);
         return new ResponseEntity<>(status, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_SELLER')")
     @PutMapping("/products/{productId}/image")
     public ResponseEntity<ProductDTO> updateImage(@PathVariable("productId") Long productId,
                                                   @RequestParam("image") MultipartFile image) throws IOException {
