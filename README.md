@@ -120,6 +120,6 @@ Contributions are welcome!
 
 **Mayank Jain**
 * GitHub: [@mayank1008-tech](https://github.com/mayank1008-tech)
-
+* LinkedIn: [Mayank Jain](https://www.linkedin.com/in/mayank-jain-78a6bb321/)
 ---
 *This project was built for educational purposes to demonstrate a Spring-Boot e-commerce monolithic architecture.*
