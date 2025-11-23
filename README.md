@@ -97,17 +97,13 @@ Once the server is running, you can access the interactive Swagger UI documentat
 
 | Module | Method | Endpoint | Description |
 | :--- | :--- | :--- | :--- |
-| **Auth**
-| `POST` | `/api/auth/signin` | Login user & get Token |
+| **Auth** | `POST` | `/api/auth/signin` | Login user & get Token |
 | | `POST` | `/api/auth/signup` | Register new user |
-| **Products** 
-| `GET` | `/api/public/products` | Get all products |
+| **Products** | `GET` | `/api/public/products` | Get all products |
 | | `POST` | `/api/admin/categories/{catId}/product` | Add product (Admin) |
-| **Cart** 
-| `POST` | `/api/carts/products/{id}/quantity/{qty}` | Add Item to Cart |
-| `GET` | `/api/carts/users/cart` | Get User's Cart |
-| **Orders** 
-| `POST` | `/api/order/users/payments/{method}` | Place an Order |
+| **Cart** | `POST` | `/api/carts/products/{id}/quantity/{qty}` | Add Item to Cart |
+| | `GET` | `/api/carts/users/cart` | Get User's Cart |
+| **Orders** | `POST` | `/api/order/users/payments/{method}` | Place an Order |
 
 *(Check Swagger UI for the complete list of all endpoints and parameters)*
 
@@ -126,4 +122,4 @@ Contributions are welcome!
 * GitHub: [@mayank1008-tech](https://github.com/mayank1008-tech)
 
 ---
-*This project was built for educational purposes to demonstrate a Spring-boot e-commerce monolithic architecture.*
+*This project was built for educational purposes to demonstrate a Spring-Boot e-commerce monolithic architecture.*
